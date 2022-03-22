@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissor</title> 
+</head>
+
+<body>
+    <script>
+        function computerPlay() {
+            let ranNum = Math.floor(Math.random() * 3);
+            console.log(ranNum);
+            switch (ranNum) {
+                case 0:
+                    return 'rock'
+                case 1:
+                    return 'paper'
+                case 2:
+                    return 'scissor'
+                default:
+                    alert('Error!')
+            }
+        }
+        function roundOne(playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+            playerSelection = prompt('Rock Paper Scissor!')
+            playerSelection = playerSelection.toLowerCase();
+            if (playerSelection === computerSelection ) {
+                alert('Draw!')
+            } else if (playerSelection == 'rock' && computerSelection == 'scissor') {
+                alert('Player wins!')
+            } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                alert('Player wins!')
+            } else if (playerSelection == 'scissor' && computerSelection == 'paper') {
+                alert('Player wins!')
+            } else {
+                alert('Computer wins!')
+            }
+        }
+        let a = b = ''
+        roundOne(a, b);
+        console.log(playerSelection)
+    </script>
+</body>
