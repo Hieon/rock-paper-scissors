@@ -8,7 +8,6 @@
     <script>
         function computerPlay() {
             let ranNum = Math.floor(Math.random() * 3);
-            console.log(ranNum);
             switch (ranNum) {
                 case 0:
                     return 'rock'
@@ -20,24 +19,40 @@
                     alert('Error!')
             }
         }
-        function roundOne(playerSelection, computerSelection) {
+        function playRound(playerSelection, computerSelection) {
             computerSelection = computerPlay();
             playerSelection = prompt('Rock Paper Scissor!')
             playerSelection = playerSelection.toLowerCase();
             if (playerSelection === computerSelection ) {
                 alert('Draw!')
             } else if (playerSelection == 'rock' && computerSelection == 'scissor') {
-                alert('Player wins!')
+                playerScore += 1;
+                alert(`Player wins! \nPlayer: ${playerScore} vs Computer ${computerScore}`)
             } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-                alert('Player wins!')
+                playerScore += 1;
+                alert(`Player wins! \nPlayer: ${playerScore} vs Computer ${computerScore}`)
             } else if (playerSelection == 'scissor' && computerSelection == 'paper') {
-                alert('Player wins!')
+                playerScore += 1;
+                alert(`Player wins! \nPlayer: ${playerScore} vs Computer ${computerScore}`)
             } else {
-                alert('Computer wins!')
+                computerScore += 1;
+                alert(`Computer wins! \nPlayer: ${playerScore} vs Computer ${computerScore}`)
             }
         }
-        let a = b = ''
-        roundOne(a, b);
-        console.log(playerSelection)
+        let playerScore = computerScore = 0; 
+        function game() {
+            for ( i = 0; i <5; i++){
+                let playerSelection = computerSelection = '';
+                playRound(playerSelection, computerSelection);
+            }
+            if (playerScore === computerScore) {
+                alert(`Computer and player won equal points of ${computerScore}.`);
+            } else if (playerScore > computerScore) {
+                alert(`Player won ${playerScore} time(s)! Final winner is the player!`);
+            } else {
+                alert(`Computer won ${computerScore} time(s)! Final winner is the computer!`);
+            }
+        }
+        game();
     </script>
 </body>
